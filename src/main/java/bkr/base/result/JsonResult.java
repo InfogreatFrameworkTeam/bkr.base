@@ -5,13 +5,13 @@ package bkr.base.result;
  * 
  * @author chengd
  */
-public class JsonResult {
+public class JsonResult<T> {
     /** code值 */
     private String code;
     /** 消息 */
     private String message;
     /** 内容 */
-    private Object data;
+    private T data;
 
     /**
      * 构造函数
@@ -20,7 +20,6 @@ public class JsonResult {
      */
     public JsonResult() {
         this.setCode(ResultCode.SUCCESS);
-        this.setMessage("成功！");
     }
 
     /**
@@ -28,11 +27,13 @@ public class JsonResult {
      * 
      * @param code
      *            code枚举对象
+     * @param message
+     *            消息文本
      * @return void
      */
-    public JsonResult(ResultCode code) {
-        this.setCode(code);
-        this.setMessage(code.msg());
+    public JsonResult(T data) {
+        this.setCode(ResultCode.SUCCESS);
+        this.setData(data);
     }
 
     /**
@@ -60,7 +61,7 @@ public class JsonResult {
      *            业务数据
      * @return void
      */
-    public JsonResult(ResultCode code, String message, Object data) {
+    public JsonResult(ResultCode code, String message, T data) {
         this.setCode(code);
         this.setMessage(message);
         this.setData(data);
@@ -82,7 +83,7 @@ public class JsonResult {
      *            code枚举对象
      */
     public void setCode(ResultCode code) {
-        this.code = code.val();
+        this.code = code.value();
     }
 
     /**
@@ -109,7 +110,7 @@ public class JsonResult {
      * 
      * @return 消息文本
      */
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
@@ -119,7 +120,7 @@ public class JsonResult {
      * @param data
      *            业务数据
      */
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 }

@@ -6,66 +6,54 @@ package bkr.base.result;
  * @author chengd
  */
 public enum ResultCode {
-    /** 成功 */
-    SUCCESS("200", "成功"),
+    /** 200:成功 */
+    SUCCESS("200"),
 
-    /** 没有登录 */
-    NOT_LOGIN("400", "没有登录"),
+    /** 400:没有登录 */
+    NOT_LOGIN("400"),
 
-    /** 发生异常 */
-    EXCEPTION("401", "发生异常"),
+    /** 401:发生异常 */
+    EXCEPTION("401"),
 
-    /** 系统错误 */
-    SYS_ERROR("402", "系统错误"),
+    /** 402:系统错误 */
+    SYS_ERROR("402"),
 
-    /** 参数错误 */
-    PARAMS_ERROR("403", "参数错误 "),
+    /** 403:参数错误 */
+    PARAMS_ERROR("403"),
 
-    /** 不支持或已经废弃 */
-    NOT_SUPPORTED("410", "不支持或已经废弃"),
+    /** 410:不支持或已经废弃 */
+    NOT_SUPPORTED("410"),
 
-    /** AuthCode错误 */
-    INVALID_AUTHCODE("444", "无效的AuthCode"),
+    /** 444:AuthCode错误 */
+    INVALID_AUTHCODE("444"),
 
-    /** 太频繁的调用 */
-    TOO_FREQUENT("445", "太频繁的调用"),
+    /** 445:太频繁的调用 */
+    TOO_FREQUENT("445"),
 
-    /** 未知的错误 */
-    UNKNOWN_ERROR("499", "未知错误");
+    /** 499:未知的错误 */
+    UNKNOWN_ERROR("499");
 
-    /** code值 */
-    private String val;
-    /** code内容 */
-    private String msg;
+    /**
+     * 参数值
+     */
+    private String value;
 
     /**
      * 构造函数
      * 
      * @param value
-     *            返回code值
-     * @param msg
-     *            返回code内容
+     *            参数值
      */
-    private ResultCode(String value, String msg) {
-        this.val = value;
-        this.msg = msg;
+    ResultCode(String value) {
+        this.value = value;
     }
 
     /**
-     * code值取得
+     * 返回参数值
      * 
-     * @return code值
+     * @return 参数值
      */
-    public String val() {
-        return val;
-    }
-
-    /**
-     * code内容取得
-     * 
-     * @return code内容
-     */
-    public String msg() {
-        return msg;
+    public String value() {
+        return value;
     }
 }
