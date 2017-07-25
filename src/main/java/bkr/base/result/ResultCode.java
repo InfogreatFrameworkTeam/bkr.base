@@ -8,7 +8,10 @@ package bkr.base.result;
 public enum ResultCode {
     /** 200:成功 */
     SUCCESS("200"),
-
+    
+    /** 300:失败 */
+    FAILURE("300"),
+    
     /** 400:没有登录 */
     NOT_LOGIN("400"),
 
