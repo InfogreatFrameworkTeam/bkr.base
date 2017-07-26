@@ -1,4 +1,4 @@
-package bkr.base.result;
+package bkr.base.api.result;
 
 /**
  * 返回结果code枚举类
