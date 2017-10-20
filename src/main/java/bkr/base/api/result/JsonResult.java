@@ -1,5 +1,8 @@
 package bkr.base.api.result;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 返回结果对象格式
  * 
@@ -7,10 +10,17 @@ package bkr.base.api.result;
  */
 public class JsonResult<T> {
     /** code值 */
+    @Getter
     private String code;
+
     /** 消息 */
+    @Setter
+    @Getter
     private String message;
+
     /** 内容 */
+    @Setter
+    @Getter
     private T data;
 
     /**
@@ -68,15 +78,6 @@ public class JsonResult<T> {
     }
 
     /**
-     * 取得code值
-     * 
-     * @return code值
-     */
-    public String getCode() {
-        return code;
-    }
-
-    /**
      * 设定code枚举对象
      * 
      * @param code
@@ -86,41 +87,4 @@ public class JsonResult<T> {
         this.code = code.value();
     }
 
-    /**
-     * 取得消息文本
-     * 
-     * @return 消息文本
-     */
-    public String getMessage() {
-        return message;
-    }
-
-    /**
-     * 设定消息文本
-     * 
-     * @param message
-     *            消息文本
-     */
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    /**
-     * 取得业务数据
-     * 
-     * @return 消息文本
-     */
-    public T getData() {
-        return data;
-    }
-
-    /**
-     * 设定业务数据
-     * 
-     * @param data
-     *            业务数据
-     */
-    public void setData(T data) {
-        this.data = data;
-    }
 }
